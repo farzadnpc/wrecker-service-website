@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WreckerVic - Car Removal & Wreckers Victoria</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="scripts/script.js" defer></script>
+</head>
+<body>
+
+<header class="top-nav">
+    <img src="images/WreckerVic.png" alt="Wrecker Service Logo" class="logo"/>
+    <a href="tel:+61435959182">Call us: 0435 959 182</a>
+</header>
+
+<main>
+    <section id="how-it-works">
+        <h2>How It Works</h2>
+        <div class="services">
+            <div class="service-item"><h4>1. Get a Free Quote</h4><p>Call or fill our form for quick valuation.</p></div>
+            <div class="service-item"><h4>2. We Come to You</h4><p>Anywhere across Melbourne & Victoria.</p></div>
+            <div class="service-item"><h4>3. Instant Payment</h4><p>Cash or transfer on the spot.</p></div>
+            <div class="service-item"><h4>4. Free Towing</h4><p>We remove it same day for free.</p></div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Towing Services</li>
+            <li>Roadside Assistance</li>
+            <li>Flat Tire Changes</li>
+            <li>Jump Starts</li>
+            <li>Fuel Delivery</li>
+        </ul>
+    </section>
+
+    <section id="why-choose" class="services">
+        <h2>Why Choose WreckerVic?</h2>
+        <div class="services">
+            <div class="service-item"><h4>Licensed & Insured</h4></div>
+            <div class="service-item"><h4>Highest Cash Offers</h4></div>
+            <div class="service-item"><h4>Friendly Local Team</h4></div>
+            <div class="service-item"><h4>Serving All Victoria</h4></div>
+        </div>
+    </section>
+
+    <section class="quote-container">
+        <h2>Get Free Quote</h2>
+        <form id="quote-form">
+            <input type="text" name="car" placeholder="Car Make, Model & Year" required>
+            <input type="text" name="pickup" placeholder="Vehicle Pickup Address">
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="mobile" placeholder="Mobile Number" required>
+            <button type="button" onclick="sendMail()">Submit</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 WreckerVic. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

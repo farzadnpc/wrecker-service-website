@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fdfdfd;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #064e3b;
+    padding: 0 40px;
+    height: 80px;
+  }
+  
+  .top-nav .logo {
+    max-height: 110px;
+    width: auto;
+  }
+  .top-nav a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background-color: #eab308;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .top-nav a:hover {
+    background-color: #c18f06;
+    transform: scale(1.05);
+  }
+  section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .service-item {
+    background: white;
+    border: 2px solid #064e3b;
+    padding: 1.5rem;
+    border-radius: 6px;
+    flex: 1 1 200px;
+    max-width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  ul li {
+    background: white;
+    margin: 10px;
+    padding: 15px;
+    border: 2px solid #064e3b;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  .quote-container {
+    background: #064e3b;
+    padding: 2rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+  }
+  .quote-container input {
+    width: 100%;
+    padding: 0.9rem;
+    margin: 0.5rem 0;
+    border: 3px solid #064e3b;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  .quote-container input::placeholder {
+    color: #ccc;
+  }
+  .quote-container button {
+    width: 100%;
+    padding: 1rem;
+    background: #eab308;
+    color: #1f2937;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.8rem;
+    transition: background 0.3s ease;
+  }
+  .quote-container button:hover {
+    background: #c18f06;
+  }
+  footer {
+    background: #064e3b;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    .top-nav {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 768px) {
+    .top-nav .logo {
+      max-height: 40px;
+    }
+  }
