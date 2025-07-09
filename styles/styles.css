@@ -112,13 +112,93 @@ body {
   .quote-container button:hover {
     background: #c18f06;
   }
-  footer {
-    background: #064e3b;
+  .big-footer {
+    background: #064e3b; /* your deep teal */
     color: white;
+    padding: 2rem;
+    text-align: left;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+.footer-about, .footer-services, .footer-map {
+    flex: 1 1 300px;
+}
+.footer-about a, .footer-about p, .footer-services li {
+    color: #d5a931(204, 241, 17, 0.643);
+    text-decoration: none;
+}
+.footer-services ul {
+    list-style: none;
+    padding: 0;
+    columns: 3; /* multi-column list */
+}
+.footer-services li::before {
+    content: "➤ ";
+    color: #eab308; /* mustard bullet */
+}
+.footer-map iframe {
+    width: 100%;
+    border-radius: 8px;
+}
+.copyright {
     text-align: center;
-    padding: 1rem;
+    margin-top: 2rem;
     font-size: 0.9rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-services ul {
+        columns: 1;
+    }
+}
+.footer-services h3 {
+  color: #84cc16; /* keep bright green heading */
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.service-area-list {
+  list-style: none;
+  padding: 0;
+  columns: 3;
+  column-gap: 1.5rem; /* slightly narrower gap */
+}
+
+.service-area-list li {
+  position: relative;
+  margin-bottom: 0.3rem; /* closer spacing */
+  padding-left: 1.2rem;
+  font-size: 0.9rem; /* smaller text */
+  color: #c18f06; /* your mustard */
+  line-height: 1.2; /* tighter lines */
+  background: none; /* ensure no background */
+}
+
+.service-area-list li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  color: #c18f06; /* mustard icon */
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .service-area-list {
+      columns: 1;
   }
+}
   @media (max-width: 768px) {
     .top-nav {
       flex-direction: column;
