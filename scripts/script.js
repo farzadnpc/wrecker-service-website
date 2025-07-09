@@ -1,3 +1,8 @@
+(function(){
+    emailjs.init({
+        publicKey: "-NZcQAN4ItYp9mRtu",
+    });
+})();
 function sendMail() {
     let car = document.getElementsByName("car")[0].value.trim();
     let pickup = document.getElementsByName("pickup")[0].value.trim();
