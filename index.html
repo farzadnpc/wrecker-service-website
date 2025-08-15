@@ -1,103 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-AU">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WreckerVic - Car Removal & Wreckers Victoria</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" href="images/WreckerVic.png"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="scripts/script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cash for Cars Melbourne | Scrap Car Removal VIC – WreckerVic</title>
+  <meta name="description" content="We buy scrap, old and unwanted cars anywhere in Victoria. Free towing and instant bank transfer (OSKO). Get a fast quote now." />
+  <link rel="canonical" href="https://www.wreckervic.com/" />
+  <link rel="icon" href="images/WreckerVic.png" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="WreckerVic" />
+  <meta property="og:title" content="Cash for Cars Melbourne | Scrap Car Removal VIC – WreckerVic" />
+  <meta property="og:description" content="Sell your old or damaged car today. Free towing and instant bank transfer across Victoria." />
+  <meta property="og:url" content="https://www.wreckervic.com/" />
+  <meta property="og:image" content="https://www.wreckervic.com/images/og-cover.jpg" />
+  <meta property="og:locale" content="en_AU" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/styles.css" />
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":["LocalBusiness","AutomotiveBusiness"],
+    "name":"WreckerVic",
+    "url":"https://www.wreckervic.com",
+    "image":"https://www.wreckervic.com/images/WreckerVic.png",
+    "telephone":"+61 469 934 580",
+    "areaServed":["Victoria","Melbourne"],
+    "address":{"@type":"PostalAddress","addressLocality":"Melbourne","addressRegion":"VIC","addressCountry":"AU"},
+    "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"}],
+    "offers":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Scrap car removal & vehicle buying","areaServed":"Victoria"}}
+  }
+  </script>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <!-- App JS -->
+  <script src="scripts/script.js" defer></script>   <!-- form + EmailJS -->
+  <script src="scripts/lga.js" defer></script>
+  <script src="scripts/brand.js" defer></script>  
 </head>
 <body>
+  <a class="sticky-call btn btn-primary" href="tel:+61469934580">Call 0469 934 580</a>
 
-<header class="top-nav">
-    <img src="images/WreckerVic.png" alt="Wrecker Service Logo" class="logo"/>
-    <a href="tel:+61435959182">Call us: 0435 959 182</a>
-</header>
+  <header class="top-nav">
+    <img src="images/WreckerVic.png" alt="WreckerVic logo" class="logo" />
+    <a class="call" href="tel:+61469934580" aria-label="Call WreckerVic now">Call us: 0469 934 580</a>
+  </header>
 
-<main>
-    <section class="quote-container">
-        <h2>Get Free Quote</h2>
-        <form id="quote-form">
-            <input type="text" name="car" placeholder="Car Make, Model & Year" required>
-            <input type="text" name="pickup" placeholder="Vehicle Pickup Address">
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="mobile" placeholder="Mobile Number" required>
-            <button type="button" onclick="sendMail()">Submit</button>
-        </form>
-    </section>
-
-    <section id="how-it-works">
-        <h2>How It Works</h2>
-        <div class="services">
-            <div class="service-item"><h4>1. Get a Free Quote</h4><p>Call or fill our form for quick valuation.</p></div>
-            <div class="service-item"><h4>2. We Come to You</h4><p>Anywhere across Melbourne & Victoria.</p></div>
-            <div class="service-item"><h4>3. Instant Payment</h4><p>Cash or transfer on the spot.</p></div>
-            <div class="service-item"><h4>4. Free Towing</h4><p>We remove it same day for free.</p></div>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Cash for cars • Scrap car removal</div>
+          <h1>Cash for Cars Melbourne & Across Victoria</h1>
+          <p class="sub">Old, damaged or unregistered? We’ll buy it and pick up anywhere in VIC. <strong>Free towing</strong> and <strong>instant bank transfer (OSKO)</strong> on pickup.</p>
+          <div class="badges">
+            <span class="badge">Same‑day pickup</span>
+            <span class="badge">We help with VicRoads steps</span>
+            <span class="badge">Licensed & insured</span>
+          </div>
         </div>
+
+        <!-- Quote form -->
+        <div class="quote">
+          <h2>Get a fast quote</h2>
+          <p class="hint">We’ll text/call you back with an offer. * required</p>
+          <form id="quote-form" novalidate>
+            <input type="text" name="_hp" id="_hp" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+            <fieldset class="grid">
+              <div>
+                <label for="name">Name *</label>
+                <input id="name" name="name" required autocomplete="name" />
+              </div>
+              <div>
+                <label for="mobile">Mobile *</label>
+                <input id="mobile" name="mobile" required inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" pattern="[0-9 +()\-]{8,}" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" />
+              </div>
+              <div>
+                <label for="suburb">Suburb / Postcode *</label>
+                <input id="suburb" name="suburb" required placeholder="e.g., Dandenong 3175" />
+              </div>
+              <div>
+                <label for="car">Car (Make / Model / Year) *</label>
+                <input id="car" name="car" required placeholder="Toyota Corolla 2012" />
+              </div>
+              <div>
+                <label for="rego">Rego status *</label>
+                <select id="rego" name="rego" required>
+                  <option value="">Select…</option>
+                  <option>Registered</option>
+                  <option>Unregistered</option>
+                  <option>Written‑off</option>
+                </select>
+              </div>
+            </fieldset>
+            <div>
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Anything else (keys, tyres, engine, pickup timing)"></textarea>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" type="submit" id="submitBtn">Get My Offer</button>
+              <a class="btn btn-outline" href="tel:+61469934580">Or call now</a>
+            </div>
+            <p id="formStatus" class="hint" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
     </section>
 
+    <!-- WHAT WE BUY -->
     <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Towing Services</li>
-            <li>Roadside Assistance</li>
-            <li>Flat Tire Changes</li>
-            <li>Jump Starts</li>
-            <li>Fuel Delivery</li>
-        </ul>
+      <div class="container">
+        <h2>Vehicles we buy</h2>
+        <div class="cards">
+          <div class="card"><strong>Scrap & old cars</strong><br><span class="hint">Any make/model, any condition</span></div>
+          <div class="card"><strong>Non‑running & unregistered</strong><br><span class="hint">We handle towing and paperwork</span></div>
+          <div class="card"><strong>Accident‑damaged or written‑off</strong><br><span class="hint">Hail, flood, engine issues welcome</span></div>
+          <div class="card"><strong>4×4, utes & vans</strong><br><span class="hint">Commercial and private vehicles</span></div>
+        </div>
+      </div>
     </section>
 
-    <section id="why-choose" class="services">
-        <h2>Why Choose WreckerVic?</h2>
-        <div class="services">
-            <div class="service-item"><h4>Licensed & Insured</h4></div>
-            <div class="service-item"><h4>Highest Cash Offers</h4></div>
-            <div class="service-item"><h4>Friendly Local Team</h4></div>
-            <div class="service-item"><h4>Serving All Victoria</h4></div>
+    <!-- HOW IT WORKS -->
+    <section id="how" style="background:#fff">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="cards">
+          <div class="card"><strong>1. Get a quote</strong><br>Send the form or call with your car details.</div>
+          <div class="card"><strong>2. We come to you</strong><br>Free pickup anywhere in Melbourne & Victoria.</div>
+          <div class="card"><strong>3. Get paid</strong><br>Instant bank transfer (OSKO) on pickup.</div>
+          <div class="card"><strong>4. VicRoads help</strong><br>We guide you through disposal / rego steps.</div>
         </div>
+      </div>
     </section>
 
-</main>
+    <!-- WHY CHOOSE -->
+    <section id="why" style="background:#fff">
+      <div class="container">
+        <h2>Why choose WreckerVic?</h2>
+        <div class="cards">
+          <div class="card"><strong>Licensed & insured</strong></div>
+          <div class="card"><strong>Top offers</strong> for scrap & unwanted cars</div>
+          <div class="card"><strong>Friendly local team</strong></div>
+          <div class="card"><strong>Serving all Victoria</strong></div>
+        </div>
+      </div>
+    </section>
+    <!-- ALL CAR BRANDS-->
+    <section id="brands">
+        <div class="container">
+          <h2>WreckerVic Car Wreckers Melbourne Buy All Makes &amp; Models</h2>
+          <div id="brandGrid" class="lga-grid" role="list"></div>
+        </div>
+      </section>
 
-<footer class="big-footer">
-    <div class="footer-container">
-        <div class="footer-about">
-            <h3>About Us</h3>
-            <p><strong>WreckerVic - We Buy Any Cars for Cash</strong></p>
-            <p>Email: <a href="mailto:info@wreckervic.com.au">info@wreckervic.com.au</a></p>
-            <p>Address: <em>Melbourne, Victoria</em></p>
-            <p>Hours:<br>
-            Monday - Saturday: 08:00 – 18:00</p>
-            <p>Customer Service: <a href="tel:+61435959182">0435 959 182</a></p>
+    <!-- ALL SUBURBS -->
+    <section id="service-areas" class="lga">
+        <div class="container">
+          <h2>Our Cash For Cars Service Areas</h2>
+          <div id="lgaGrid" class="lga-grid" role="list"></div>
         </div>
-        
-        <div class="footer-services">
-            <h3>Service Area</h3>
-            <ul class="service-area-list">
-                <li>Pakenham</li><li>Keilor Park</li><li>Airport</li><li>Essendon</li>
-                <li>Brunswick</li><li>Flemington</li><li>Cranbourne</li><li>Dandenong</li>
-                <li>Croydon</li><li>Doncaster</li><li>Laverton</li><li>Epping</li>
-                <li>Bayswater</li><li>Werribee</li><li>Hastings</li><li>Hawthorn</li>
-                <li>Melton</li><li>Frankston</li><li>Clayton</li><li>Coburg</li>
-                <li>Preston</li><li>Glenroy</li><li>Sunshine</li><li>Sunbury</li>
-                <li>Craigieburn</li><li>Bundoora</li><li>Moorabbin</li><li>Mornington</li>
-                <li>Ringwood</li><li>Preston</li><li>Reservoir</li><li>Rosebud</li>
-                <li>Springvale</li><li>St Kilda</li><li>Geelong</li>
-            </ul>
+      </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="background:#f8fafc">
+      <div class="container">
+        <h2>FAQs</h2>
+        <div class="cards">
+          <div class="card"><strong>How do you pay?</strong><br>Instant bank transfer (OSKO) at pickup.</div>
+          <div class="card"><strong>Do you charge for towing?</strong><br>No—towing is included across Melbourne and most of VIC.</div>
+          <div class="card"><strong>Will you buy an unregistered or non‑running car?</strong><br>Absolutely. We specialise in non‑runners, damaged and unregistered cars.</div>
         </div>
-        <div class="footer-map">
-            <h3>Our Location</h3>
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.889383280489!2d145.21820121558313!3d-38.00126797971645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad613fb387d0c3d%3A0x5fd7f1af2f3c4fc9!2s3%20Maxwell%20St%2C%20Dandenong%20South%20VIC%203175!5e0!3m2!1sen!2sau!4v1688948346920!5m2!1sen!2sau" 
-                width="300" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="big-footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>About us</h3>
+        <p><strong>WreckerVic — We buy cars across Victoria</strong></p>
+        <p>Email: <a href="mailto:nasirnajib1@gmail.com">nasirnajib1@gmail.com</a></p>
+        <p>Customer service: <a href="tel:+61469934580">0469 934 580</a></p>
+        <p>Hours: Mon–Sat 08:00–18:00</p>
+      </div>
+      <div class="footer-col">
+        <h3>Our location</h3>
+        <p>3 Maxwell St, Dandenong South VIC 3175</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.889383280489!2d145.21820121558313!3d-38.00126797971645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad613fb387d0c3d%3A0x5fd7f1af2f3c4fc9!2s3%20Maxwell%20St%2C%20Dandenong%20South%20VIC%203175!5e0!3m2!1sen!2sau!4v1688948346920!5m2!1sen!2sau" width="100%" height="240" style="border:0;border-radius:10px" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
-    <p class="copyright">&copy; 2025 WreckerVic. All Rights Reserved.</p>
-</footer>
-
+    <p class="copyright">© <span id="year"></span> WreckerVic. All rights reserved.</p>
+  </footer>
 </body>
 </html>
