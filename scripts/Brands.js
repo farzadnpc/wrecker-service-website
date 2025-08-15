@@ -202,7 +202,7 @@
       }).join('');
     }
   
-    // limit to 5 open at once (change if you like)
+    // limit to 3 open at once (change if you like)
     function limitOpenBrands(maxOpen = 3){
       const grid = document.getElementById('brandGrid');
       if (!grid) return;
@@ -226,8 +226,15 @@
       }, true);
     }
   
-    document.addEventListener('DOMContentLoaded', () => {
+    function bootBrands(){
       renderBrands();
       limitOpenBrands(3);
-    });
+    }
+    
+    // run now if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bootBrands, { once: true });
+    } else {
+      bootBrands();
+    }
   })();
