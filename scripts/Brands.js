@@ -177,30 +177,31 @@
         ]}
       ];
   
-    function renderBrands(){
-      const grid = document.getElementById('brandGrid');
-      if(!grid) return;
-  
-      grid.innerHTML = BRAND_DATA.map(item => {
-        const models = item.models
-          .slice()
-          .sort((a,b)=>a.localeCompare(b,'en',{sensitivity:'base'}))
-          .map(m => `<li>${m}</li>`)
-          .join('');
-  
-        return `
-          <details class="lga-item">
-            <summary>
-              <span>${item.brand}</span>
-              <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </summary>
-            <ul class="suburb-list">${models || '<li>We buy all models.</li>'}</ul>
-          </details>`;
-      }).join('');
-    }
+      function renderBrands(){
+        const grid = document.getElementById('brandGrid');
+        if(!grid) return;
+      
+        const dataSorted = BRAND_DATA.slice()
+          .sort((a,b)=>a.brand.localeCompare(b.brand,'en',{sensitivity:'base'}));
+      
+        grid.innerHTML = dataSorted.map(item => {
+          const models = item.models.slice()
+            .sort((a,b)=>a.localeCompare(b,'en',{sensitivity:'base'}))
+            .map(m => `<li>${m}</li>`)
+            .join('');
+          return `
+            <details class="lga-item">
+              <summary>
+                <span>${item.brand}</span>
+                <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <ul class="suburb-list">${models || '<li>We buy all models.</li>'}</ul>
+            </details>`;
+        }).join('');
+      }
   
     // limit to 3 open at once (change if you like)
     function limitOpenBrands(maxOpen = 3){
