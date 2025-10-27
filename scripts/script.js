@@ -9,6 +9,25 @@
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+     // Mobile nav toggle
+     var nav = document.querySelector('.primary-nav');
+     var navToggle = document.querySelector('.nav-toggle');
+     if (nav && navToggle) {
+          navToggle.addEventListener('click', function(){
+            var isOpen = nav.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          });
+    
+          nav.querySelectorAll('a').forEach(function(link){
+            link.addEventListener('click', function(){
+              if (nav.classList.contains('is-open')) {
+                nav.classList.remove('is-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
+        }
+    
     // EmailJS
     if (window.emailjs && typeof emailjs.init === 'function') {
       try { emailjs.init({ publicKey: '-NZcQAN4ItYp9mRtu' }); } catch(e) { console.warn('EmailJS init failed', e); }
