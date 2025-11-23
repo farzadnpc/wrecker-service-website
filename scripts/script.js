@@ -83,25 +83,28 @@
         var hp = document.getElementById('_hp');
         if (hp && hp.value) return;
 
-        var data = {
+        var formValues = {
           name: document.getElementById('name').value.trim(),
           mobile: document.getElementById('mobile').value.trim(),
           email: document.getElementById('email').value.trim(),
           suburb: document.getElementById('suburb').value.trim(),
-          vehicle: document.getElementById('vehicle').value.trim(),
-          part: document.getElementById('part').value.trim(),
-          urgency: document.getElementById('urgency').value,
+          car: document.getElementById('car').value.trim(),
           notes: document.getElementById('notes').value.trim()
         };
 
-        if (!data.name || !data.mobile || !data.vehicle || !data.suburb || !data.part || !data.urgency) {
+        if (!formValues.name || !formValues.mobile || !formValues.car || !formValues.suburb) {
           if (status) status.textContent = 'Please fill in all required fields.';
           return;
         }
 
-        // Legacy template variables for EmailJS compatibility
-        data.car = data.vehicle;
-        data.rego = data.urgency;
+        var data = {
+          name: formValues.name,
+          mobile: formValues.mobile,
+          email: formValues.email,
+          suburb: formValues.suburb,
+          car: formValues.car,
+          notes: formValues.notes || '—'
+        };
 
         try {
           if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
