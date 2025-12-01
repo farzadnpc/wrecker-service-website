@@ -55,9 +55,10 @@ h1{font-size:clamp(1.8rem,2.2vw+1rem,2.8rem);line-height:1.15;margin:.4rem 0}
 
 /* ===== Quote card ===== */
 .quote{background:#0f172a;color:#fff;border-radius:14px;padding:16px 18px;border:1px solid rgba(15,23,42,.7);box-shadow:0 18px 50px rgba(15,23,42,.3)}
-.quote h2{margin:.2rem 0 6px;font-size:1.3rem}
-.hint{font-size:.85rem;color:#475569}
+.quote h2{margin:0 0 4px;font-size:1.3rem}
+.hint{font-size:.85rem;color:#000000}
 .quote .hint{color:rgba(241,245,249,.88)}
+.hint-script{font-family:inherit;font-style:normal;font-weight:700;letter-spacing:0;font-size:2rem;line-height:1.25;text-align:center;margin:2px 0 10px}
 form fieldset{border:none;margin:0;padding:0}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid-1{grid-template-columns:1fr}
