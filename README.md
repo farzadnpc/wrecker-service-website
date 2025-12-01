@@ -7,6 +7,7 @@ This project is a one-page marketing site for Victoria Used Parts, a Victorian L
 ```
 wrecker-service-website
 ├── index.html        # Main HTML document for the website
+├── cash-for-cars.html # Cash for cars landing page
 ├── styles            # Directory for CSS styles
 │   └── styles.css    # Styles for the website
 ├── scripts           # Directory for JavaScript files
@@ -21,6 +22,7 @@ wrecker-service-website
 - Responsive design with anchored navigation and strong hero call-to-actions
 - Updated hero and lead form to capture used part requests with enhanced validation messaging
 - Dynamic accordions listing popular makes, models and Victorian LGAs served
+- Dedicated cash for cars page with tailored messaging for vehicle sellers
 - Structured data (JSON-LD) for LocalBusiness, FAQPage and map-rich results plus expanded meta tags for SEO
 - EmailJS-powered enquiry form with client-side validation and honeypot field
 

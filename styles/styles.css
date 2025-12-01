@@ -36,7 +36,8 @@ img{max-width:100%;height:auto}
 .nav-toggle-label{line-height:1}
 .nav-links{display:flex;gap:18px;list-style:none;margin:0;padding:0}
 .nav-links a{color:#e2e8f0;font-weight:600;font-size:.95rem}
-.nav-links a:hover{color:#fbbf24}
+.nav-links a:hover{color:#fbbf24;text-decoration:none}
+.top-nav a:hover{text-decoration:none}
 .nav-links .nav-call{display:flex}
 .top-nav a.call{font-size:1rem;font-weight:800;color:#0f172a;background:#f97316;padding:10px 16px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(15,23,42,.25)}
 .top-nav a.call:hover{background:#ea580c;color:#0f172a}
