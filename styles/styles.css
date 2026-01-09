@@ -248,3 +248,24 @@ h2{font-size:1.65rem;margin:0 0 12px;color:#0f172a}
   .step::after{ display:none; }
   .node{ left:24px; }
 }
+/* Google Maps Store Locator Styles */
+gmpx-store-locator {
+  width: 100%;
+  height: 400px; /* Adjusted height to fit your footer better */
+  margin-top: 10px;
+  border-radius: 10px; /* Matches your existing site style */
+
+  /* Custom Colors to match your site theme (Navy & Orange) */
+  --gmpx-color-surface: #fff;
+  --gmpx-color-on-surface: #212121;
+  --gmpx-color-on-surface-variant: #757575;
+  --gmpx-color-primary: #f97316; /* Your brand orange */
+  --gmpx-color-outline: #e0e0e0;
+  --gmpx-font-family-base: Arial, sans-serif;
+  --gmpx-font-family-headings: Arial, sans-serif;
+  --gmpx-font-size-base: 0.875rem;
+  --gmpx-hours-color-open: #188038;
+  --gmpx-hours-color-closed: #d50000;
+  --gmpx-rating-color: #ffb300;
+  --gmpx-rating-color-empty: #e0e0e0;
+}

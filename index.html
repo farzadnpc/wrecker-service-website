@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Victoria Used Parts | Quality Recycled Auto Parts in Victoria</title>
@@ -103,6 +104,7 @@
       }
     ]
   }
+
   </script>
 
   <!-- EmailJS SDK -->
@@ -171,7 +173,7 @@
         <!-- Quote form -->
         <div class="quote">
           <h2>Request a part quote</h2>
-          <p class="hint hint-script">GET AN INSTANT QOUTE</p>
+          <p class="hint hint-script">GET AN INSTANT QUOTE</p>
           <form id="quote-form" novalidate>
             <input type="text" name="_hp" id="_hp" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
             <fieldset class="grid">
@@ -367,14 +369,15 @@
         <h3>About us</h3>
         <p><strong>Victoria Used Parts — Recycled auto parts specialists</strong></p>
         <p>We’re a local LMCT dismantler supplying quality used parts to workshops, panel beaters and DIY enthusiasts throughout Victoria.</p>
-        <p>Email: <a href="mailto:nasirnajib1@gmail.com">nasirnajib1@gmail.com</a></p>
+        <p>Email: <a href="mailto:sales@victoriausedparts.com.au">sales@victoriausedparts.com.au</a></p>
         <p>Customer service: <a href="tel:+61469934580">0469 934 580</a></p>
         <p>Hours: Mon–Sat 08:00–18:00</p>
       </div>
       <div class="footer-col">
         <h3>Our location</h3>
         <p>1 Maxwell St, Dandenong South VIC 3175</p>
-        <iframe src="https://www.google.com/maps?q=1%20Maxwell%20St,%20Dandenong%20South%20VIC%203175&output=embed" width="100%" height="240" style="border:0;border-radius:10px" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Victoria Used Parts on Google Maps"></iframe>
+        <gmpx-api-loader key="AIzaSyAE7lLIS1k6SzZat_6c9quFvnSVa9lbE7E" solution-channel="GMP_QB_locatorplus_v11_c"></gmpx-api-loader>
+<gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
       </div>
       <div class="footer-col">
         <h3>Quick links</h3>
@@ -396,5 +399,37 @@
     </div>
     <p class="copyright">© <span id="year"></span> Victoria Used Parts PTY LTD. All rights reserved.</p>
   </footer>
+  <script>
+    const CONFIGURATION = {
+      "locations": [
+        {
+          "title": "Victoria Used Parts & Cash For Cars",
+          "address1": "1 Maxwell St",
+          "address2": "Dandenong South, VIC, Australia",
+          "coords": { "lat": -38.0012558, "lng": 145.2188508 },
+          "placeId": "ChIJqU-Q5JAT1moR62seYKERCBU"
+        }
+      ],
+      "mapOptions": {
+        // CHANGED: I updated this to center on Dandenong South so it looks right on load
+        "center": { "lat": -38.001, "lng": 145.218 },
+        "fullscreenControl": true,
+        "mapTypeControl": false,
+        "streetViewControl": false,
+        "zoom": 13, // Zoomed in closer to your shop
+        "zoomControl": true,
+        "maxZoom": 17,
+        "mapId": ""
+      },
+      "mapsApiKey": "AIzaSyAE7lLIS1k6SzZat_6c9quFvnSVa9lbE7E",
+      "capabilities": { "input": false, "autocomplete": false, "directions": true, "distanceMatrix": false, "details": false, "actions": false }
+    };
+  
+    document.addEventListener('DOMContentLoaded', async () => {
+      await customElements.whenDefined('gmpx-store-locator');
+      const locator = document.querySelector('gmpx-store-locator');
+      locator.configureFromQuickBuilder(CONFIGURATION);
+    });
+  </script>
 </body>
 </html>
