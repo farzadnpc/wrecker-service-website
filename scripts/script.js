@@ -1,7 +1,7 @@
 // App JS for Victoria Used Parts
 // - EmailJS init
 // - Quote form validation & submission
-// - Small UX helpers
+// - Mobile Navigation & Dropdown Toggles
 
 (function(){
   document.addEventListener('DOMContentLoaded', function(){
@@ -9,62 +9,50 @@
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Mobile nav toggle
+    // --- MOBILE NAV TOGGLE (Hamburger) ---
     var nav = document.querySelector('.primary-nav');
     var navToggle = document.querySelector('.nav-toggle');
+    
     if (nav && navToggle) {
-      var setNavState = function(open){
-        nav.classList.toggle('is-open', open);
-        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        navToggle.classList.toggle('is-active', open);
-      };
-
-      var closeNav = function(){
-        setNavState(false);
-      };
-
       var toggleNav = function(){
-        var shouldOpen = !nav.classList.contains('is-open');
-        setNavState(shouldOpen);
+        var isOpen = nav.classList.contains('is-open');
+        nav.classList.toggle('is-open', !isOpen);
+        navToggle.setAttribute('aria-expanded', !isOpen);
+        navToggle.classList.toggle('is-active', !isOpen);
       };
 
-      navToggle.addEventListener('click', function(){
-        toggleNav();
-      });
+      navToggle.addEventListener('click', toggleNav);
 
-      nav.querySelectorAll('a').forEach(function(link){
-        link.addEventListener('click', function(){
-          closeNav();
-        });
-      });
-
+      // Close menu when clicking outside
       document.addEventListener('click', function(evt){
         if (!nav.classList.contains('is-open')) return;
         if (nav.contains(evt.target) || navToggle.contains(evt.target)) return;
-        closeNav();
+        
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('is-active');
       });
-
-      document.addEventListener('keydown', function(evt){
-        if (evt.key === 'Escape') {
-          closeNav();
-        }
-      });
-
-      var mq = window.matchMedia('(max-width: 900px)');
-      var handleViewportChange = function(e){
-        if (!e.matches) {
-          closeNav();
-        }
-      };
-      handleViewportChange(mq);
-      if (typeof mq.addEventListener === 'function') {
-        mq.addEventListener('change', handleViewportChange);
-      } else if (typeof mq.addListener === 'function') {
-        mq.addListener(handleViewportChange);
-      }
     }
 
-    // EmailJS
+    // --- MOBILE DROPDOWN TOGGLES ---
+    // This finds all links that have a dropdown menu next to them
+    var dropdownParents = document.querySelectorAll('.has-dropdown > a');
+    
+    dropdownParents.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        // Only trigger this toggle behavior on mobile screens (<= 900px)
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          e.preventDefault(); // Stop the link from loading a new page
+          
+          var parentLi = this.parentElement;
+          
+          // Toggle the 'active' class (CSS will use this to show/hide the menu)
+          parentLi.classList.toggle('active');
+        }
+      });
+    });
+
+    // --- EMAILJS FORM SUBMISSION ---
     if (window.emailjs && typeof emailjs.init === 'function') {
       try { emailjs.init({ publicKey: '-NZcQAN4ItYp9mRtu' }); } catch(e) { console.warn('EmailJS init failed', e); }
     } else {
@@ -79,7 +67,7 @@
       form.addEventListener('submit', async function(e){
         e.preventDefault();
 
-        // Honeypot: if filled, likely a bot
+        // Honeypot check
         var hp = document.getElementById('_hp');
         if (hp && hp.value) return;
 
@@ -118,7 +106,7 @@
             if (status) status.textContent = "Thanks! We'll confirm availability shortly.";
             form.reset();
           } else {
-            if (status) status.textContent = 'Form sent (demo mode). Please call 0469 934 580 if you do not hear from us.';
+            if (status) status.textContent = 'Form sent (demo mode). Please call 0469 934 580.';
           }
         } catch (err) {
           console.error(err);
@@ -129,7 +117,7 @@
       });
     }
 
-    // Track tel: clicks in GA4 if present
+    // Track tel: clicks
     document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
       a.addEventListener('click', function(){
         if (window.gtag) gtag('event','click',{event_category:'engagement',event_label:'tel'});
