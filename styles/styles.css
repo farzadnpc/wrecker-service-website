@@ -796,39 +796,46 @@ gmpx-store-locator {
   content: none !important;
   display: none !important;
 }
-/* ===== MOBILE FIX: FORM FIRST (Instantly Visible) ===== */
+/* ===== UPDATED MOBILE LAYOUT: Logical Flow & Visibility ===== */
 @media (max-width: 900px) {
   
-  /* Stack items vertically */
+  /* Use Flexbox to manage the vertical stack */
   .hero-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 20px !important;
-    padding-top: 0 !important; /* Reduce top gap */
+    gap: 1.5rem !important;
+    padding-top: 10px !important;
   }
 
-  /* 1. Put the Quote Form FIRST */
-  .quote {
-    order: -1 !important; /* Jumps to the top */
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
-  }
-
-  /* 2. Put the Text SECOND */
+  /* 1. Ensure text comes first for brand recognition */
   .hero-grid > div:not(.quote) {
     order: 1 !important;
     width: 100% !important;
+    text-align: center; /* Center text for better mobile aesthetics */
   }
 
-  /* Reduce huge headline size on mobile so it doesn't take up too much space below */
+  /* 2. Place the Quote Form immediately after the intro text */
+  .quote {
+    order: 2 !important; 
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Refine Typography for mobile space */
   h1 {
-    font-size: 1.6rem !important; 
-    margin-top: 10px !important;
+    font-size: 1.75rem !important; 
+    margin-bottom: 0.5rem !important;
+    line-height: 1.2 !important;
   }
   
-  /* Hide the "Eyebrow" text (Top Rated...) on mobile to save space */
+  .sub {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Hide small eyebrow text on mobile to save vertical space */
   .eyebrow {
     display: none !important;
   }
