@@ -34,23 +34,34 @@
       });
     }
 
-    // --- MOBILE DROPDOWN TOGGLES ---
-    // This finds all links that have a dropdown menu next to them
-    var dropdownParents = document.querySelectorAll('.has-dropdown > a');
+// --- MOBILE DROPDOWN TOGGLES ---
+var dropdownParents = document.querySelectorAll('.has-dropdown > a');
     
-    dropdownParents.forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        // Only trigger this toggle behavior on mobile screens (<= 900px)
-        if (window.matchMedia('(max-width: 900px)').matches) {
-          e.preventDefault(); // Stop the link from loading a new page
-          
-          var parentLi = this.parentElement;
-          
-          // Toggle the 'active' class (CSS will use this to show/hide the menu)
-          parentLi.classList.toggle('active');
+dropdownParents.forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    // Only trigger on mobile screens (<= 900px)
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      e.preventDefault(); 
+      
+      var parentLi = this.parentElement;
+      var isActive = parentLi.classList.contains('active');
+
+      // 1. Close ALL other open dropdowns first
+      document.querySelectorAll('.has-dropdown.active').forEach(function(item) {
+        if (item !== parentLi) {
+          item.classList.remove('active');
         }
       });
-    });
+      
+      // 2. Toggle the clicked one (if it was closed, open it; if open, close it)
+      if (!isActive) {
+        parentLi.classList.add('active');
+      } else {
+        parentLi.classList.remove('active');
+      }
+    }
+  });
+});
 
     // --- EMAILJS FORM SUBMISSION ---
     if (window.emailjs && typeof emailjs.init === 'function') {
